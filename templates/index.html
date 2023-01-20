@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <title>Rice Diseases Detection</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/logo-white.png') }}">
+
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+    
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md py-3 sticky-top navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand mx-auto" href="#" >
+                <img class="logo" src="{{ url_for('static', filename='img/logo-dark.jpg') }}" style="width: 80px;height: 30px;" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" onclick="moveToDiv('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Diseases" onclick="moveToDiv('Diseases')">Classifier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Detector" onclick="moveToDiv('Detector')">Detector</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team" onclick="moveToDiv('team')">Team</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- //NAVBAR -->
+
+    <!-- HERO --> 
+    <div class="hero vh-100 d-flex align-items-center" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 text-white">Rice Disease Detector using Convolutional Neural Network</h1>
+                    <p class="text-white my-3">This website is build to identify a certain disease for rice leafs. 
+                        The website is created for reasearch purposes only. Anything in the website are properties 
+                        of the researchers</p>
+                    <a href="#Detector" class="btn me-2 btn-primary" style="border-radius: 10px;" onclick="moveToDiv('Detector')">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- HERO -->
+
+     <!-- CARD GROUP BLOG -->
+     <section id="Diseases" class="bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <!-- HEADER TEXT PARAGRAPH -->
+                <div class="col-md-9 mx-auto text-center">
+                    <h6 class="text-primary">Diseases</h6>
+                    <h1>Common Rice Disease</h1>
+                    <p>Damage from disease to rice can significantly lower production. They are primarily brought on by fungus, viruses, or bacteria. The simplest and frequently most economical method of managing illnesses is to plant a resistant type. The system can identify the following frequent diseases and conditions in rice</p>
+                </div>
+            </div>
+            <div class="row g-3">
+                <!-- FIRST IMAGE -->
+                <div class="col-lg-4">
+                    <div class="blog-post card-effect blog-height" >
+                        <img src="{{ url_for('static', filename='img/diseases1.jpg') }}" alt="" class="img-blog">
+                        <h5 class="mt-4" style="text-align: center;"><a href="http://www.knowledgebank.irri.org/step-by-step-production/growth/pests-and-diseases/diseases/">Bacterial Leaf Blight</a></h5>
+                        <p class="p-blog">The severe bacterial disease identified as "bacterial leaf blight" in rice was first
+                            discovered in Japan between 1884 and 1885. The bacteria <u><i>Xanthomonas oryzae pv oryzae</i></u>. is responsible
+                            for its development.   It is frequently encountered in regions that grow rice in Asia, Africa, Australia,
+                            Latin America, and the Caribbean. </p>
+                    </div>
+                </div>
+                <!-- SECOND IMAGE -->
+                <div class="col-lg-4">
+                    <div class="blog-post card-effect blog-height" >
+                        <img src="{{ url_for('static', filename='img/diseases2.jpg') }}" alt="" class="img-blog">
+                        <h5 class="mt-4" style="text-align: center;"><a href="http://www.knowledgebank.irri.org/step-by-step-production/growth/pests-and-diseases/diseases/">Brown spot</a></h5>
+                        <p class="p-blog">A fungal disease called brown spot attacks the coleoptile, leaves, leaf sheath, panicle branches, glumes, and spikelets. The multiple large blotches on the leaves that can kill the entire leaf are the most obvious damage. Unfilled grains, speckled, or discolored seeds emerge when the seed obtains the infection. </p>
+                    </div>
+                </div>
+                <!-- THIRD IMAGE -->
+                <div class="col-lg-4">
+                    <div class="blog-post card-effect blog-height" class="blog-height-card">
+                        <img src="{{ url_for('static', filename='img/diseases3.jpg') }}" alt="" class="img-blog">
+                        <h5 class="mt-4" style="text-align: center;"><a href="http://www.knowledgebank.irri.org/step-by-step-production/growth/pests-and-diseases/diseases/">Leaf Scald</a></h5>
+                        <p class="p-blog">The <u><i>Microdochium oryzae</u></i>  disease is known as leaf scald is a constant problem of rice growing areas around the world. The disease is seed-borne and spreads between crops on infected seeds. It affects leaves, panicles, and seedlings. On maturing leaves, the disease usually manifests itself. </p>
+                    </div>
+                </div>
+                <!-- FOURTH IMAGE -->
+                <div class="col-lg-4">
+                    <div class="blog-post card-effect blog-height" class="blog-height-card">
+                        <img src="{{ url_for('static', filename='img/diseases4.jpg') }}" alt="" class="img-blog">
+                        <h5 class="mt-4" style="text-align: center;"><a href="http://www.knowledgebank.irri.org/step-by-step-production/growth/pests-and-diseases/diseases/">Narrow Brown Spot</a></h5>
+                            <p class="p-blog">Narrow brown spot, also known as narrow brown leaf spot or rice <u><i>Cercospora</i></u> leaf spot, is a disease that can damage leaves, sheaths, and panicles. It is caused by the fungus <u><i>Sphaerulina oryzina</i></u> (also known as <u><i>Cercospora janseana</i></u>, <u><i>Cercospora oryzae</i></u>). It causes grains to ripen before they should, leaves and leaf sheaths to die before they need to, and, in extreme circumstances, it can force plants to die. </p>
+                    </div>
+                </div>
+                <!-- FIFTH IMAGE -->
+                <div class="col-lg-4">
+                    <div class="blog-post card-effect blog-height" class="blog-height-card">
+                        <img src="{{ url_for('static', filename='img/diseases5.png') }}" alt="" class="img-blog">
+                        <h5 class="mt-4" style="text-align: center;"><a href="http://www.knowledgebank.irri.org/step-by-step-production/growth/pests-and-diseases/diseases/">Rice Leaf Blast</a></h5>
+                            <p class="p-blog">Rice leaf blast is a fungal disease that affects rice plants and is brought on by <u><i>Pyricularia oryae</i></u>. It is distinguished by elliptical leaf spots with reddish-brown edges, brown lesions and panicle neck rot, along with plant stunting. </p>
+                    </div>
+                </div>
+                <!-- SIXTH IMAGE -->
+                <div class="col-lg-4">
+                    <div class="blog-post card-effect blog-height" class="blog-height-card">
+                        <img src="{{ url_for('static', filename='img/riceHealth.jpg') }}" alt="" class="img-blog">
+                        <h5 class="mt-4" style="text-align: center;"><a href="http://www.knowledgebank.irri.org/step-by-step-production/growth/pests-and-diseases/diseases/">Healthly Rice Leaf</a></h5>
+                        <p class="p-blog">Rice is an edible starchy cereal crop that is produced by the grass plant (family <u><i>Poaceae</i></u>), <u><i>Oryza sativa</i></u>. Nearly all of East and Southeast Asia and around half of the world's population depend entirely on rice as a staple meal, and humans consume 95% of the world's rice cultivation. It is eaten alone as well as with a diverse variety of soups, side dishes, and main courses in Asian, Middle Eastern, and many other cuisines. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- CARD GROUP BLOG -->
+
+    <!-- Detector -->
+    <section id="Detector" class="bg-dark" class="body-detector">
+        <div class="container">
+            <div class="row mb-5">
+                <form id='uploadImage' method="post" action="/#Detector" enctype="multipart/form-data" style="padding-top: 30px;" class="row mx-auto text-center">
+                    <h1 style="padding-bottom: 10px; color: white;">Rice Disease Detector</h1>
+                    <!-- DRAG AREA DESIGN -->
+                    
+                    <div class="col-md-6 mx-auto position-relative">
+                        <div class="drag-area w-100 p-5">
+                            <div class="icon"><img src="{{ url_for('static', filename='img/cloud.png') }}"></div>
+                            <button type="button" onclick="moveToDiv('Detector')">Browse File</button>
+                        </div>
+                        <div class="loading rounded position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center">
+                            <div class="lds-facebook"><div></div><div></div><div></div></div>
+                        </div>
+                    </div>
+
+                    <!-- NILABAS LANG ITO DON SA DRAG AREA CONTAINER -->
+                    <input type="file" name="imagefile" id="uploadFile" hidden>
+
+                    <div class="col-md-6 d-none" id="cardPrediction">
+                        <div class="card card-height p-4 d-flex align-items-center">
+                        </div>
+                    </div>
+                    <div class="text-center mt-5" id="buttonContainer">
+                        <button type="submit" name="submit" class="submit btn btn-info rounded text-uppercase" id="Submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section><!-- Detector -->
+
+    <!-- TEAM -->
+    <section id="team">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">TEAM</h6>
+                    <h1>Meet Our Crew Members</h1>
+                    <p>Our research team is shown here. The websites and their contents were created by us. 
+                        If you have any questions, kindly contact us at the following information:</p>
+                </div>
+            </div>
+                 <!-- FIRST CREW -->
+                <div class="row text-center g-4">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team-member card-effect">
+                            <img src="{{ url_for('static', filename='img/team1.jpg') }}" alt="">
+                            <h5 class="mb-0 mt-4">Jericho Apiles</h5>
+                            <p>Researchers</p>
+                            <div class="social-icons">
+                                <a href="#"><i class='bx bxl-facebook'></i></a>
+                                <a href="#"><i class='bx bxl-twitter'></i></a>
+                                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                            </div>
+                        </div>
+                </div>
+                <!-- SECOND CREW -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="{{ url_for('static', filename='img/team2.jpg') }}" alt="">
+                        <h5 class="mb-0 mt-4">Allen Troy Eraña</h5>
+                        <p>Researchers</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- THIRD CREW -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="{{ url_for('static', filename='img/team3.jpg') }}" alt="">
+                        <h5 class="mb-0 mt-4">Jude Atienza</h5>
+                        <p>Researchers</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- FOURTH CREW -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="{{ url_for('static', filename='img/team4.jpg') }}" alt="">
+                        <h5 class="mb-0 mt-4">Kristine Ompangco</h5>
+                        <p>Researchers</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- TEAM -->
+
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4">
+                        <img class="logo" src="{{ url_for('static', filename='img/logo-white.png') }}" alt="">
+                    </div>
+                    <div class="col-lg-2">
+                        <h5 class="text-white">Brand</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5 class="text-white">More</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">FAQ's</a></li>
+                            <li><a href="#">Privacy & Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white">Contact</h5>
+                        <ul class="list-unstyled">
+                            <li>Address: 9256 San Pablo City</li>
+                            <li>Email: john.constatine@example.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0">© 2022 copyright all right reserved<a
+                                href=""
+                                class="text-white"></a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/Detector.script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ url_for('static',filename='index.js') }}"></script>
+
+
+    <script>
+        function setActiveNavLink() {
+            // Remove active class from all links
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+                link.classList.remove('active');
+            });
+            // Get the current location
+            var current = location.pathname;
+            // Add active class to the current link
+            var links = document.querySelectorAll('.nav-link');
+            links.forEach(function(link) {
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        function moveToDiv(divId) {
+            event.preventDefault()
+            // Get the div element that you want to move to
+            var div = document.getElementById(divId);
+            
+            // Scroll the div into view
+            div.scrollIntoView({ behavior: "smooth", block: "start", inline: "start"});
+        }
+
+     
+        window.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('uploadImage');
+         
+            function reset(elem) {
+                elem.remove();
+                const cardPrediction = document.getElementById('cardPrediction');
+
+                cardPrediction.querySelector('.card').innerHTML = '';
+                cardPrediction.classList.add('d-none');
+
+                document.querySelector('.drag-area').innerHTML = `
+                    <div class="icon"><img src="{{ url_for('static', filename='img/cloud.png') }}"></div>
+                    <button type="button">Browse File</button>
+                `;
+                buttonContainer.innerHTML = `
+                        <button type="submit" name="submit" class="submit btn btn-info rounded text-uppercase">Submit</button>               
+                    `;
+
+                form.imagefile.value = '';
+            }
+
+            document.addEventListener('click', (e) => {
+                if (e.target.matches('#clearImage')) {
+                    reset(e.target);
+                }
+            })
+            document.addEventListener('click', (e) => {
+                if (e.target.matches('#reset')) {
+                    reset(e.target);
+                }
+            })
+            form?.addEventListener('change', async function(e) {
+                e.preventDefault();
+                const buttonContainer = document.getElementById('buttonContainer');
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const button = document.getElementById('clearImage');
+                    buttonContainer.innerHTML = `
+                        <button type="submit" name="submit" class="submit btn btn-info rounded text-uppercase">Submit</button>
+                        <button type="button" class="btn btn-light rounded text-uppercase ms-3" id="clearImage">Clear Image</button>
+                    `;
+            
+                };
+                reader.readAsDataURL(input.files[0]);
+                moveToDiv("Detector");
+                setActiveNavLink();
+            })
+            form?.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const loader = document.querySelector('.loading');
+                const cardPrediction = document.getElementById('cardPrediction');
+                const buttonContainer = document.getElementById('buttonContainer');
+                
+                try {
+                        
+                    if (this.imagefile.files.length <= 0) {
+                        Swal.fire({title: "No image selected for classification",
+                                backdrop: `rgba(0,0,0, 0.9)`}).then(()=>moveToDiv('Detector'))
+                        return;
+                    }
+
+                    this.submit.disabled = true;
+                    loader.classList.add('active');
+                    
+                    const formData = new FormData();
+                    formData.append('imagefile', this.imagefile.files[0]);
+
+                    const response = await axios.post('/', formData);
+
+                    const { confidence, recommendation, rice_state } = response.data;
+                    document.getElementById("cardPrediction").style.textAlign = "justify";
+                    
+                    cardPrediction.querySelector('.card').innerHTML = `
+                        <p>
+                            <b>Prediction:</b>
+                                ${rice_state}
+                            </br>
+                            <b>Confidence:</b>
+                                ${confidence.replace('Confidence',"")}
+                        </p>
+                        <p class="m-0">
+                            <b>
+                                Recommendation:
+                            </b> 
+                            </br>
+                            </br>
+                                <ul>   
+                                    ${recommendation.split('|').join('</li><li>').replace('RECOMMENDATION/TREATMENT:', '')}
+                                </ul>
+                        </p>
+                        <a href=http://www.knowledgebank.irri.org/step-by-step-production/growth/pests-and-diseases/diseases/>See More</a>
+                    `;
+
+                    cardPrediction.classList.remove('d-none');
+
+                    buttonContainer.innerHTML = `
+                        <button type="button" class="btn btn-light rounded text-uppercase ms-3" id="reset" onclick="moveToDiv('Detector')">Select New Image</button>
+                    `;
+                    setActiveNavLink();
+                }
+                catch(err) {
+                    console.log(err)
+                }
+                finally {
+                    loader.classList.remove('active');
+                    this.submit.disabled = false;
+                    moveToDiv('Detector');
+                    setActiveNavLink();
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>
